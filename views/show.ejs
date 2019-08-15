@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+<div class="nav">
+  <div class="">
+    <%= request.title %>
+  </div>
+
+  <div class="">
+    <span><%= request.created.toDateString()%></span>
+  </div>
+
+  <div class="">
+    <p><%-request.body%></p>
+  </div>
+
+  <div class="">
+    <button id="delete" name="button"><a href="/user/requests/<%=request._id%>/edit">Edit</a></button>
+  </div>
+
+  <div class="">
+    <form class="" action="/user/requests/<%=request._id%>?_method=DELETE" method="POST">
+      <button>Delete</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+<% include ./partials/footer %>

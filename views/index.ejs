@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+    <div class="nav">
+      <div class="">
+        All Requests
+      </div>
+
+      <div class="">
+        <% requests.forEach((request) => {%>
+          <div class="">
+            <a href="/user/requests/<%= request._id%>"><%= request.title%></a>
+            <span><%=request.created.toDateString()%></span>
+            <p><%-request.body.substring(0, 100)%></p>
+          </div>
+        <%});%>
+      </div>
+    </div>
+
+<% include ./partials/footer %>

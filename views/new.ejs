@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+
+<div class="nav">
+  <form action="/user/requests" method="POST">
+    <fieldset>
+      <legend>Make A New Request</legend>
+      <label>Title</label>
+      <input type="text" name="request[title]" placeholder="Title"><br>
+      <label>Body Content</label>
+      <textarea name="request[body]"></textarea><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+</div>
+
+
+
+
+
+<% include ./partials/footer %>

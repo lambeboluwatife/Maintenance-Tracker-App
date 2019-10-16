@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+  <%  if(currentUser.gender === 'female'){ %>
+    <img src="../carcollections/avatar4.png" alt="">
+  <%  } else { %>
+    <img src="../carcollections/avatar3.png" alt="">
+  <%  } %>
+  <br><br><br>
+  <p class="profile"><%= currentUser.lastname %> <%= currentUser.firstname %></p>
+  <p class="profile"><%= currentUser.username %></p>
+  <p class="profile"><%= currentUser.email %></p>
+  <p class="profile"><%= currentUser.telephone %></p>
+  <br>
+  <a class="item" href="/user/requests/new">New Request</a>
+  <a class="item" href="/user/requests">Outbox</a>
+  <a class="item" href="#">Inbox</a>
+  <a class="item" href="/logout">Logout</a>
+</div>
+
+<div id="main">
+  <span class="menu" style="font-size:20px;cursor:pointer" onclick="openNav()">☰</span>
+
+  <div class="edithead">
+    Edit <%= request.title%>
+  </div>
+  <br>
+
+<div class="createbox">
+  <form class="" action="/user/requests/<%= request._id%>?_method=PUT" method="POST">
+    <fieldset>
+      <label>Title</label>
+      <input type="text" name="request[title]" value="<%=request.title%>"><br>
+      <label>Body Content</label>
+      <textarea name="request[body]"><%= request.body%></textarea><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+
+  </form>
+</div>
+</div>
+
+
+<% include ../partials/footer %>

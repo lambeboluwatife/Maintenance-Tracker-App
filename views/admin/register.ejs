@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create your account</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+  </head>
+  <body>
+    <header>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a class="item" href="index.html">Home</a>
+      <a class="item" href="cars.html">Cars</a>
+      <a class="item" href="sign.html">Sign In</a>
+      <a class="item" href="create.html">Create Account</a>
+    </div>
+    <span class="menu" onclick="openNav()">☰ Menu</span>
+  </header>
+
+    <div class="loginbox">
+      <h1>Create Account</h1>
+      <form action="/admin/register" method="POST">
+        <input type="text" name="firstname" required placeholder="First Name">
+        <input type="text" name="lastname" required placeholder="Last Name">
+        <input id="mail" type="e-mail" name="email" required placeholder="E-mail">
+        <input type="text" name="telephone" required placeholder="Telephone">
+        <input id="username" type="text" name="username" required placeholder="Username">
+        <input id="passwords" type="password" name="password" required placeholder="Password">
+        <!-- <input id="verifyPassword" type="password" name="" required placeholder="Verify Password"> -->
+        <input class="submit" type="submit" name="" value="Submit">
+        <a href="/admin/login">Already have an account, Sign in</a><br>
+      </form>
+    </div>
+    <script src="login2.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+
+<div id="main">
+
+  <div>
+    <h1 class="titlehead"><%= request.title %></h1>
+  </div>
+
+  <!-- Trigger/Open The Modal -->
+  <button id="myBtn"><span>View Request</span></button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">×</span>
+        <h2><%= request.title %></h2>
+      </div>
+      <div class="modal-body">
+        <p><%-request.body%></p>
+        <br>
+        <div class="">
+          <button class="edit approve" id="delete" name="button">Approve</button>
+        </div>
+
+        <div class="disaprove">
+          <form action="/users/requests/<%=request._id%>?_method=DELETE" method="POST">
+            <button class="delete">Disapprove</button>
+          </form>
+        <br>
+      </div>
+      <div class="modal-footer">
+          <span>Created By <%= request.author.username %> on <%= request.created.toDateString()%></span>
+      </div>
+    </div>
+
+  </div>
+
+<% include ../partials/footer %>

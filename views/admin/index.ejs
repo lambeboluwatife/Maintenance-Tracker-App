@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+  <!-- <div class="container-fluid">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+      <a class="item" href="/user/requests/new">New Request</a>
+      <a class="item" href="/user/requests">Outbox</a>
+      <a class="item" href="#">Inbox</a>
+      <a class="item" href="#">Logout</a>
+    </div> -->
+
+    <div id="main">
+      <div>
+        All Requests
+      </div>
+      <div>
+        <br>
+        <fieldset>
+        <table>
+          <tr>
+            <th>Request</th>
+            <th>Created By</th>
+            <th>Created At</th>
+          </tr>
+        <% requests.forEach((request) => {%>
+          <div>
+            <tr>
+              <td><a href="/users/requests/<%= request._id%>"><%= request.title%></a></td>
+              <td><p><em>Requested By <%= request.author.username %></em></p></td>
+              <td><span><%=request.created.toDateString()%></span></td>
+          </div>
+        <%});%>
+      </div>
+    </div>
+
+  </div>
+
+
+<% include ../partials/footer %>

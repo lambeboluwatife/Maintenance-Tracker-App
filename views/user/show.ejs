@@ -1,0 +1,68 @@
+<% include ../partials/header %>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+  <%  if(currentUser.gender === 'female'){ %>
+    <img src="../carcollections/avatar4.png" alt="">
+  <%  } else { %>
+    <img src="../carcollections/avatar3.png" alt="">
+  <%  } %>
+  <br><br><br>
+  <p class="profile"><%= currentUser.lastname %> <%= currentUser.firstname %></p>
+  <p class="profile"><%= currentUser.username %></p>
+  <p class="profile"><%= currentUser.email %></p>
+  <p class="profile"><%= currentUser.telephone %></p>
+  <br>
+  <a class="item" href="/user/requests/new">New Request</a>
+  <a class="item" href="/user/requests">Outbox</a>
+  <a class="item" href="#">Inbox</a>
+  <a class="item" href="/logout">Logout</a>
+</div>
+
+<div id="main">
+  <span class="menu" style="font-size:20px;cursor:pointer" onclick="openNav()">☰</span>
+
+  <div>
+    <h1 class="titlehead"><%= request.title %></h1>
+  </div>
+
+  <!-- Trigger/Open The Modal -->
+  <button id="myBtn"><span>View Request</span></button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">×</span>
+        <h2><%= request.title %></h2>
+      </div>
+      <div class="modal-body">
+        <p><%-request.body%></p>
+        <br>
+        <div class="">
+          <button  class="edit" id="delete" name="button"><a href="/user/requests/<%=request._id%>/edit">Edit</a></button>
+        </div>
+
+        <div class="">
+          <form action="/user/requests/<%=request._id%>?_method=DELETE" method="POST">
+            <button class="delete">Delete</button>
+          </form>
+        <br>
+      </div>
+      <div class="modal-footer">
+          <span><%= request.created.toDateString()%></span>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+</div>
+
+
+
+
+
+<% include ../partials/footer %>

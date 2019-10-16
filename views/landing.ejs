@@ -5,7 +5,6 @@
     <title>Maintenance App</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/landing.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
   </head>
   <body>
     <header>
@@ -19,10 +18,20 @@
         <li><a href="/logout">Logout</a></li>
       </ul>
       <%  } %>
-      </header>
-
+    </header>
       <div class="diver">
           <h1 class="head">Dan's Auto Shop</h1>
           <p class="sub">Maintenance Tracker App</p>
       </div>
       <br>
+
+<div id="main">
+
+  <p style="color: darkred; font-size: 30px; font-family: cursive;">Welcome to Maintenance Tracker App</p>
+
+  <button class="delete"><a href="/user/requests">Check Your Requests</a></button>
+  
+</div>
+
+
+<% include partials/footer %>

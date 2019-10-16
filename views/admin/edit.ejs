@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+  <a class="item" href="/user/requests/new">New Request</a>
+  <a class="item" href="/user/requests">Outbox</a>
+  <a class="item" href="#">Inbox</a>
+  <a class="item" href="#">Logout</a>
+</div>
+
+<div id="main">
+  <span class="menu" style="font-size:20px;cursor:pointer" onclick="openNav()">☰</span>
+
+  <div class="">
+    Edit <%= request.title%>
+  </div>
+
+  <form class="" action="/user/requests/<%= request._id%>?_method=PUT" method="POST">
+    <fieldset>
+      <legend>Edit a Request</legend>
+      <label>Title</label>
+      <input type="text" name="request[title]" value="<%=request.title%>"><br>
+      <label>Body Content</label>
+      <textarea name="request[body]"><%= request.body%></textarea><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+
+  </form>
+</div>
+
+
+<% include ../partials/footer %>

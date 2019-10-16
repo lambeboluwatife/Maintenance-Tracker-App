@@ -1,0 +1,53 @@
+<% include ../partials/header %>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+    <%  if(currentUser.gender === 'female'){ %>
+      <img src="../carcollections/avatar4.png" alt="">
+    <%  } else { %>
+      <img src="../carcollections/avatar3.png" alt="">
+    <%  } %>
+    <br><br><br>
+    <p class="profile"><%= currentUser.lastname %> <%= currentUser.firstname %></p>
+    <p class="profile"><%= currentUser.username %></p>
+    <p class="profile"><%= currentUser.email %></p>
+    <p class="profile"><%= currentUser.telephone %></p>
+    <br>
+    <a class="item" href="/user/requests/new">New Request</a>
+    <a class="item" href="/user/requests">Outbox</a>
+    <a class="item" href="#">Inbox</a>
+    <a class="item" href="/logout">Logout</a>
+  </div>
+
+  <div id="main">
+    <span class="menu" style="font-size:20px;cursor:pointer" onclick="openNav()">☰</span>
+
+    <div class="all">
+      All Requests
+    </div>
+    <div>
+      <br>
+      <fieldset>
+      <table>
+        <tr>
+          <th>Request</th>
+          <th>Created At</th>
+          <th>Status</th>
+        </tr>
+      <% requests.forEach((request) => {%>
+        <% if (request.author.id.equals(currentUser._id)) { %>
+          <tr>
+            <td><a href="/user/requests/<%= request._id%>"><%= request.title%></a></td>
+            <td><span><%=request.created.toDateString()%></span></td>
+            <td><em>...pending...</em></td>
+          </tr>
+        <% } %>
+      <%});%>
+      </table>
+      </fieldset>
+    </div>
+  </div>
+
+
+
+<% include ../partials/footer %>
